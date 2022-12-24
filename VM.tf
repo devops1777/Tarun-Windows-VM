@@ -94,3 +94,24 @@ resource "azurerm_public_ip" "Tarun-PIP" {
     environment = "Production"
   }
 }
+
+resource "azurerm_managed_disk" "Tarun-VM-SG" {
+  name = "Tarun-VM-SG"
+  resource_group_name = azurerm_resource_group.Tarun-VM.name
+  location = azurerm_resource_group.Tarun-VM.location
+  create_option = "Empty"
+  storage_account_type = "Standard_LRS"
+  disk_size_gb = 8
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "Tarun-DA" {
+  managed_disk_id = azurerm_managed_disk.Tarun-VM-SG.id
+  virtual_machine_id = azurerm_windows_virtual_machine.Tarun-WVM.id    
+  lun = "0"
+  caching = "ReadWrite"
+  
+  depends_on = [
+    azurerm_windows_virtual_machine.Tarun-WVM,
+    azurerm_managed_disk.Tarun-VM-SG
+  ]
+}
