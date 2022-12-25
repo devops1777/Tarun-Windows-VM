@@ -1,4 +1,4 @@
-### #Terraform # Window Server 2019 # Virtual Machine # Virtual Network # Subnet # Public IP # Managed Disk # Data Disk # Security Group # Azure Devops # GIT Repo # Pipeline
+# #Terraform # Window Server 2019 # Virtual Machine # Virtual Network # Subnet # Public IP # Managed Disk # Data Disk # Security Group # Azure Devops # GIT Repo # Pipeline
 
 1. Declare the Azure Resource Manager provider and specify the version to use
 2. Create an Azure resource group
@@ -12,7 +12,7 @@
 10. Create a security group and a rule within the security group
 11. Associate the security group with the network interface of the virtual machine
 
-### Pipeline
+# Pipeline
 
 - Declare the trigger for the pipeline to run, in this case the master branch
 - Specify the pool to use for the pipeline, using the ubuntu-latest image
